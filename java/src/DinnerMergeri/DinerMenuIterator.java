@@ -1,39 +1,39 @@
 package DinnerMergeri;
 
-import java.util.Iterator;
-
 public class DinerMenuIterator implements Iterator {
-	MenuItem[] list;
+	MenuItem[] items;
 	int position = 0;
-
-	public DinerMenuIterator(MenuItem[] list) {
-		this.list = list;
+ 
+	public DinerMenuIterator(MenuItem[] items) {
+		this.items = items;
 	}
-
+ 
 	public Object next() {
-		MenuItem menuItem = list[position];
+		MenuItem menuItem = items[position];
 		position = position + 1;
 		return menuItem;
 	}
-
+ 
 	public boolean hasNext() {
-		if (position >= list.length || list[position] == null) {
+		if (position >= items.length || items[position] == null) {
 			return false;
 		} else {
 			return true;
 		}
 	}
-
-	public void remove() {
-		if (position <= 0) {
-			throw new IllegalStateException
-			("You can't remove an item until you've done at least one next()");
-		}
-		if (list[position-1] != null) {
-			for (int i = position-1; i < (list.length-1); i++) {
-				list[i] = list[i+1];
+	public void remove(Object o) {
+		int rm=0;
+		for(int i=0;i<items.length;i++) {
+			if(items[i]==o){
+				rm=i;
+				break;
 			}
-			list[list.length-1] = null;
 		}
+		for(int i=rm;i<items.length;i++){
+			MenuItem temp = items[i];
+			items[i]=items[i+1];
+			items[i+1]=temp;
+		}
+		items[items.length]=null;
 	}
 }

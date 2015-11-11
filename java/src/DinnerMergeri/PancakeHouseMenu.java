@@ -1,11 +1,10 @@
 package DinnerMergeri;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class PancakeHouseMenu implements Menu{
+public class PancakeHouseMenu implements Menu {
 	ArrayList menuItems;
-	 
+ 
 	public PancakeHouseMenu() {
 		menuItems = new ArrayList();
     
@@ -20,7 +19,7 @@ public class PancakeHouseMenu implements Menu{
 			2.99);
  
 		addItem("Blueberry Pancakes",
-			"Pancakes made with fresh blueberries, and blueberry syrup",
+			"Pancakes made with fresh blueberries",
 			true,
 			3.49);
  
@@ -42,6 +41,10 @@ public class PancakeHouseMenu implements Menu{
 	}
   
 	public Iterator createIterator() {
-		return menuItems.iterator();
+		return new PancakeHouseMenuIterator(menuItems);
+	}
+  
+	public String toString() {
+		return "Objectville Pancake House Menu";
 	}
 }

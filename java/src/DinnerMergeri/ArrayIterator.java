@@ -1,4 +1,4 @@
-package javafull;
+package DinnerMergeri;
 
 public class ArrayIterator implements Iterator {
 	MenuItem[] items;
@@ -20,5 +20,20 @@ public class ArrayIterator implements Iterator {
 		} else {
 			return true;
 		}
+	}
+	public void remove(Object o) {
+		int rm=0;
+		for(int i=0;i<items.length;i++) {
+			if(items[i]==o){
+				rm=i;
+				break;
+			}
+		}
+		for(int i=rm;i<items.length;i++){
+			MenuItem temp = items[i];
+			items[i]=items[i+1];
+			items[i+1]=temp;
+		}
+		items[items.length]=null;
 	}
 }

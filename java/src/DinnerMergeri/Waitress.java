@@ -1,12 +1,10 @@
 package DinnerMergeri;
 
-import java.util.Iterator;
-
 public class Waitress {
-	Menu pancakeHouseMenu;
-	Menu dinerMenu;
+	PancakeHouseMenu pancakeHouseMenu;
+	DinerMenu dinerMenu;
  
-	public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
+	public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu) {
 		this.pancakeHouseMenu = pancakeHouseMenu;
 		this.dinerMenu = dinerMenu;
 	}
@@ -31,19 +29,17 @@ public class Waitress {
 	}
  
 	public void printVegetarianMenu() {
-		System.out.println("\nVEGETARIAN MENU\n----\nBREAKFAST");
 		printVegetarianMenu(pancakeHouseMenu.createIterator());
-		System.out.println("\nLUNCH");
 		printVegetarianMenu(dinerMenu.createIterator());
 	}
  
 	public boolean isItemVegetarian(String name) {
-		Iterator pancakeIterator = pancakeHouseMenu.createIterator();
-		if (isVegetarian(name, pancakeIterator)) {
+		Iterator breakfastIterator = pancakeHouseMenu.createIterator();
+		if (isVegetarian(name, breakfastIterator)) {
 			return true;
 		}
-		Iterator dinerIterator = dinerMenu.createIterator();
-		if (isVegetarian(name, dinerIterator)) {
+		Iterator dinnerIterator = dinerMenu.createIterator();
+		if (isVegetarian(name, dinnerIterator)) {
 			return true;
 		}
 		return false;

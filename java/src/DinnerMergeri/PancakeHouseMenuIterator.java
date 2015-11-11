@@ -1,12 +1,12 @@
-package javafull;
+package DinnerMergeri;
 
 import java.util.ArrayList;
 
-public class ArrayListIterator implements Iterator {
+public class PancakeHouseMenuIterator implements Iterator {
 	ArrayList items;
 	int position = 0;
  
-	public ArrayListIterator(ArrayList items) {
+	public PancakeHouseMenuIterator(ArrayList items) {
 		this.items = items;
 	}
  
@@ -22,5 +22,8 @@ public class ArrayListIterator implements Iterator {
 		} else {
 			return true;
 		}
+	}
+	public void remove(Object o) {
+		items.remove(o);
 	}
 }
